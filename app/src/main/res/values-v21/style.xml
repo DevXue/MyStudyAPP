@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--Android 5.0之后可以用到此属性就行设置透明状态栏 -->
+    <style name="TransparentStatusBarActivity" parent="AppTheme">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+</resources>
