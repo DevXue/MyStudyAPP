@@ -14,6 +14,9 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * 通用ViewHolder
+ */
 public class ViewHolder {
 
 	private SparseArray<View> mViews;

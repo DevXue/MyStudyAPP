@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * 作者：薛
  * 时间：2017/4/11 09:53
+ *
  */
 public abstract class CommonListViewAdapter<T> extends BaseAdapter{
 
