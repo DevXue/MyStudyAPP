@@ -1,4 +1,4 @@
-package xue.myapp.common;
+package xue.myapp.common.interfaces;
 
 import java.util.List;
 

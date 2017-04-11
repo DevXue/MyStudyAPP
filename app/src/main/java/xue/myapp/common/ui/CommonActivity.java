@@ -1,4 +1,4 @@
-package xue.myapp.common;
+package xue.myapp.common.ui;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import com.dvp.base.activity.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import xue.myapp.common.interfaces.PermissionLintener;
 
 /**
  * 作者： 薛
@@ -25,11 +27,6 @@ public class CommonActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
-
-
-
-
 
 
 

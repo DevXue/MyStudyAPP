@@ -14,8 +14,8 @@ import java.io.File;
 import java.util.List;
 
 import xue.myapp.R;
-import xue.myapp.common.CommonActivity;
-import xue.myapp.common.PermissionLintener;
+import xue.myapp.common.ui.CommonActivity;
+import xue.myapp.common.interfaces.PermissionLintener;
 
 public class MainActivity extends CommonActivity {
 

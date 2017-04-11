@@ -23,8 +23,13 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile files('libs/classes.jar')//本地jar文件
+    compile files('libs/xue.jar')
+    //本地jar文件
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.android.support:design:25.2.0'
-    compile 'com.jakewharton:butterknife:7.0.1'//注解框架
+    compile 'com.android.support:recyclerview-v7:25.3.0'// recycleView
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.3'
+    compile 'com.jakewharton:butterknife:7.0.1'//注解框架 7.0.1就行，千万别升级，升级会有问题
+
+
 }
