@@ -14,10 +14,16 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!--透明状态栏 此属性提供给 values-v21 引用 -->
     <style name="TransparentStatusBarActivity" parent="AppTheme">
+    </style>
+
+    <!--设置初始化启动时窗口为透明 解决首次启动白屏一段时间的问题 -->
+    <style name="AppTheme.Launcher">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
 </resources>
