@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+
+
+
+    <color name="transparent">#0000</color><!-- 透明 -->
+    <color name="transparent2">#8000</color><!-- 透明 -->
+    <color name="translucent">#89000000</color><!-- 半透明 -->
+
 </resources>
