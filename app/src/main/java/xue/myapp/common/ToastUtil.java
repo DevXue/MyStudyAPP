@@ -33,6 +33,17 @@ public class ToastUtil {
         toast.show();
     }
 
+    public static void  showViewToast(Context context, int resId) {
+        View v = LayoutInflater.from(context).inflate(R.layout.toast_layout, null);
+        TextView textView = (TextView) v.findViewById(R.id.textView1);
+        textView.setText(resId);
+        toast = new Toast(context);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.setView(v);
+        toast.show();
+    }
+
 
     /**
      * 只显示一次Toast，只改变内容,避免多次创建
@@ -46,6 +57,15 @@ public class ToastUtil {
         }
         toast.show();
     }
+    public static void  showToast(Context context,String resId){
+        if (toast==null){
+            toast=Toast.makeText(context,resId,Toast.LENGTH_SHORT);
+        }else{
+            toast.setText(resId);
+            toast.setDuration(Toast.LENGTH_SHORT);
+        }
+        toast.show();
+    }
 
 
     /**
@@ -53,6 +73,10 @@ public class ToastUtil {
      */
     public static void makeText(Context context,String content){
         toast=Toast.makeText(context,content,Toast.LENGTH_SHORT);
+        toast.show();
+    }
+    public static void makeText(Context context,int resId){
+        toast=Toast.makeText(context,resId,Toast.LENGTH_SHORT);
         toast.show();
     }
 
