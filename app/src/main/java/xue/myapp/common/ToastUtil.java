@@ -33,6 +33,9 @@ public class ToastUtil {
         toast.show();
     }
 
+    /**
+     * 引用String.xml
+     */
     public static void  showViewToast(Context context, int resId) {
         View v = LayoutInflater.from(context).inflate(R.layout.toast_layout, null);
         TextView textView = (TextView) v.findViewById(R.id.textView1);
@@ -57,6 +60,10 @@ public class ToastUtil {
         }
         toast.show();
     }
+
+    /**
+     * 引用String.xml
+     */
     public static void  showToast(Context context,String resId){
         if (toast==null){
             toast=Toast.makeText(context,resId,Toast.LENGTH_SHORT);
@@ -75,6 +82,10 @@ public class ToastUtil {
         toast=Toast.makeText(context,content,Toast.LENGTH_SHORT);
         toast.show();
     }
+
+    /**
+     * 引用String.xml
+     */
     public static void makeText(Context context,int resId){
         toast=Toast.makeText(context,resId,Toast.LENGTH_SHORT);
         toast.show();
