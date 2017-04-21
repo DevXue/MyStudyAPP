@@ -44,10 +44,14 @@ public class ToastUtil {
         View v = LayoutInflater.from(context).inflate(R.layout.toast_layout, null);
         TextView textView = (TextView) v.findViewById(R.id.textView1);
         textView.setText(resId);
-        toast = new Toast(context);
-        toast.setDuration(Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.setView(v);
+        if (toast == null) {
+            toast = new Toast(context);
+            toast.setDuration(Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.setView(v);
+        }else{
+            toast.show();
+        }
         toast.show();
     }
 
