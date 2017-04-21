@@ -1,29 +1,19 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="250dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
     android:layout_height="wrap_content"
-    android:background="@color/translucent"
+    android:gravity="center"
     android:padding="10dp"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp"
-    android:orientation="horizontal"
+    android:background="@drawable/toast_bg"
     >
-
-    <ImageView
-        android:id="@+id/toast_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/ic_chicken"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        />
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:minWidth="100dp"
         android:layout_height="wrap_content"
+        android:text="完成"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:layout_centerInParent="true"
-        android:layout_toRightOf="@+id/toast_img"
+        android:textSize="20sp"
+        android:padding="5dp"
         android:gravity="center"
         />
-</RelativeLayout>
+</LinearLayout>
