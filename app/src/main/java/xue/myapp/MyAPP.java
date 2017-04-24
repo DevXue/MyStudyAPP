@@ -1,5 +1,7 @@
 package xue.myapp;
 
+import android.content.Context;
+
 import com.dvp.base.app.APP;
 
 /**
@@ -9,8 +11,14 @@ import com.dvp.base.app.APP;
  */
 
 public class MyAPP extends APP {
+    public static Context context;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        context=getApplicationContext();
     }
+
+    public static Context getContext(){return context;}
+
 }
