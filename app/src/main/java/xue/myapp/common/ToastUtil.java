@@ -12,47 +12,57 @@ import xue.myapp.R;
 /**
  * 作者：薛
  * 时间：2017/4/17 09:36
- * 吐司工具类:  单例Toast，加载布局Toast
+ * 吐司工具类
  */
 public class ToastUtil {
 
     private static Toast toast;
 
     /**
-     * 自定义Toast，加载布局显示Toast
+     * 自定义Toast，加载布局显示Toast(实例只有一个，只创建一次)
      */
-
     public static void  showViewToast(Context context, CharSequence text) {
         View v = LayoutInflater.from(context).inflate(R.layout.toast_layout, null);
-        TextView textView = (TextView) v.findViewById(R.id.textView1);
-        textView.setText(text);
+        TextView   textView = (TextView) v.findViewById(R.id.textView1);
         if (toast == null) {
             toast = new Toast(context);
+            textView.setText(text);
             toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.setView(v);
+            toast.show();
         }else{
+            textView.setText(text);
+            toast.setDuration(Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.setView(v);
             toast.show();
         }
-        toast.show();
+
     }
+
 
     /**
      * 引用String.xml
      */
     public static void  showViewToast(Context context, int resId) {
         View v = LayoutInflater.from(context).inflate(R.layout.toast_layout, null);
-        TextView textView = (TextView) v.findViewById(R.id.textView1);
-        textView.setText(resId);
+        TextView   textView = (TextView) v.findViewById(R.id.textView1);
         if (toast == null) {
             toast = new Toast(context);
+            textView.setText(resId);
             toast.setDuration(Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.setView(v);
+            toast.show();
         }else{
+            textView.setText(resId);
+            toast.setDuration(Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.setView(v);
             toast.show();
         }
-        toast.show();
+
     }
 
 
