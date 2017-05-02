@@ -13,6 +13,7 @@ android {
         ndk {
             abiFilters 'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
+        vectorDrawables.useSupportLibrary = true
     }
 
     dexOptions {
@@ -43,10 +44,12 @@ dependencies {
     //本地jar文件
     // recycleView
     //注解框架 7.0.1就行，千万别升级，升级会有问题
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:design:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:recyclerview-v7:25.3.0'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.3'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:support-vector-drawable:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
 }
