@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import xue.myapp.R;
+import xue.myapp.common.DeviceUtil;
 
 public class HomePageActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -53,6 +54,7 @@ public class HomePageActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            DeviceUtil.reboot();
             return true;
         }
         return super.onOptionsItemSelected(item);
