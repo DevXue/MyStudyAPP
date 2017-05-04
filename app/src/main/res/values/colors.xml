@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#00BCD4</color>
+    <color name="colorPrimaryDark">#00BCD4</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- 通用背景色 -->
+    <color name="gray">#efefef</color>
+    <color name="gray_cccccc">#cccccc</color>
+    <color name="gray_1">#7B7B7B</color>
+    <color name="gray_2">#5B5B5B</color>
+    <color name="gray_3">#dddddd</color>
+    <color name="gray_4">#939393</color>
+    <color name="gray_5">#aaaaaa</color>
+    <color name="gray_6">#D1D1D1</color>
 
 
 
