@@ -12,12 +12,20 @@ import java.io.File;
 import xue.myapp.R;
 import xue.myapp.common.ui.CommonActivity;
 
-public class MainActivity extends CommonActivity {
+/**
+ * 详情页
+ */
+public class InfoActivity extends CommonActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_info);
+        initView();
+    }
+
+    @Override
+    public void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -43,7 +51,7 @@ public class MainActivity extends CommonActivity {
                                     @Override
                                     public void onDenied(List<String> deniedPermisson) {
                                         for (String s : deniedPermisson) {
-                                            Toast.makeText(MainActivity.this, s+"权限被拒绝", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(InfoActivity.this, s+"权限被拒绝", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
@@ -51,6 +59,12 @@ public class MainActivity extends CommonActivity {
                         }).show();*/
             }
         });
+    }
+
+    //不显示父类的ToolBar
+    @Override
+    protected boolean isShowToolBar() {
+        return false;
     }
 
     @Override

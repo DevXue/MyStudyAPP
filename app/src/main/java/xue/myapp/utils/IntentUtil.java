@@ -1,4 +1,4 @@
-package xue.myapp.common;
+package xue.myapp.utils;
 
 import android.content.ComponentName;
 import android.content.Intent;

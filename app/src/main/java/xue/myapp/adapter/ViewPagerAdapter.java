@@ -1,4 +1,4 @@
-package xue.myapp.ui;
+package xue.myapp.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

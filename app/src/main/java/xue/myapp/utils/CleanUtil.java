@@ -1,4 +1,4 @@
-package xue.myapp.common;
+package xue.myapp.utils;
 
 import com.dvp.base.util.SDCardUtil;
 

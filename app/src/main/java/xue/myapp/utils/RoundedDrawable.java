@@ -1,4 +1,4 @@
-package xue.myapp.common;
+package xue.myapp.utils;
 
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;

@@ -1,4 +1,4 @@
-package xue.myapp.common;
+package xue.myapp.utils;
 
 import java.util.ArrayList;
 import java.util.List;

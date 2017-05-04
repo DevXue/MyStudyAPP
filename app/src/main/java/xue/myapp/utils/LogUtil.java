@@ -1,4 +1,4 @@
-package xue.myapp.common;
+package xue.myapp.utils;
 
 import android.os.Environment;
 import android.support.annotation.IntDef;
