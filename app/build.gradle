@@ -40,16 +40,22 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile files('libs/xue.jar')
     //本地jar文件
-    // recycleView
-    //注解框架 7.0.1就行，千万别升级，升级会有问题
+    compile files('libs/xue.jar')
+    //5.0之后新特性
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
-    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.3'
-    compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:support-vector-drawable:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
+    // recycleView
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    //动画效果Adapter
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.3'
+    //注解框架 7.0.1就行，千万别升级，升级会有问题
+    compile 'com.jakewharton:butterknife:7.0.1'
+    //约束布局
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //抽屉布局
+    compile 'com.android.support:support-vector-drawable:25.3.1'
+    //透明状态栏需要
+    compile 'com.jaeger.statusbarutil:library:1.4.0'
 }
