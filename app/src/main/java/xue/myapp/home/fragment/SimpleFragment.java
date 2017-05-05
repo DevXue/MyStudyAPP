@@ -1,4 +1,4 @@
-package xue.myapp.fragment;
+package xue.myapp.home.fragment;
 
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;

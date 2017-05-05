@@ -1,4 +1,4 @@
-package xue.myapp.module.ui;
+package xue.myapp.module.demo.ui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 import xue.myapp.R;
 import xue.myapp.home.adapter.ViewPagerAdapter;
 import xue.myapp.utils.BottomNavigationViewHelper;
-import xue.myapp.fragment.SimpleFragment;
+import xue.myapp.home.fragment.SimpleFragment;
 
 public class NavigationActivity extends AppCompatActivity {
 

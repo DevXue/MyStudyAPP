@@ -1,4 +1,4 @@
-package xue.myapp.module.ui;
+package xue.myapp.module.demo.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

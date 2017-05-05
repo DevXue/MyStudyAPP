@@ -21,7 +21,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import xue.myapp.R;
 import xue.myapp.home.adapter.ViewPagerAdapter;
-import xue.myapp.fragment.SimpleFragment;
+import xue.myapp.home.fragment.SimpleFragment;
 import xue.myapp.utils.BottomNavigationViewHelper;
 
 public class HomePageActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

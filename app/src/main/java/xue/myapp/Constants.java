@@ -25,11 +25,5 @@ public class Constants {
             R.drawable.splash8,
             R.drawable.splash9,
             R.drawable.splash10,
-            R.drawable.splash11,
-            R.drawable.splash12,
-            R.drawable.splash13,
-            R.drawable.splash14,
-            R.drawable.splash15,
-            R.drawable.splash16,
     };
 }

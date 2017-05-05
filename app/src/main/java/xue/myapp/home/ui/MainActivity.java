@@ -11,10 +11,11 @@ import android.widget.LinearLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import xue.myapp.R;
-import xue.myapp.home.adapter.ViewPagerAdapter;
 import xue.myapp.common.ui.CommonActivity;
-import xue.myapp.fragment.SimpleFragment;
+import xue.myapp.home.adapter.ViewPagerAdapter;
+import xue.myapp.home.fragment.SimpleFragment;
 import xue.myapp.utils.BottomNavigationViewHelper;
+
 
 public class MainActivity extends CommonActivity {
 
