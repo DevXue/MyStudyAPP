@@ -1,4 +1,4 @@
-package xue.myapp.home;
+package xue.myapp.home.ui;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import xue.myapp.Constants;
 import xue.myapp.R;
-import xue.myapp.adapter.GuideAdapter;
+import xue.myapp.home.adapter.GuideAdapter;
 import xue.myapp.common.ui.CommonActivity;
 
 @SuppressLint("InflateParams")

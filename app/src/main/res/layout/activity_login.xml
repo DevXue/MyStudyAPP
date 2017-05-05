@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="xue.myapp.home.LoginActivity"
+    tools:context="xue.myapp.home.ui.LoginActivity"
     android:background="@color/colorPrimary"
     android:gravity="center_horizontal"
     >

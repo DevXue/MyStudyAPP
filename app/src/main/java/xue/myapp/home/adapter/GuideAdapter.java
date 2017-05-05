@@ -1,4 +1,4 @@
-package xue.myapp.adapter;
+package xue.myapp.home.adapter;
 
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;

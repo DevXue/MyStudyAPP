@@ -1,4 +1,4 @@
-package xue.myapp.home;
+package xue.myapp.home.ui;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

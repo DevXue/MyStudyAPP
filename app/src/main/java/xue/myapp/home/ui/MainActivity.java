@@ -1,10 +1,9 @@
-package xue.myapp.ui;
+package xue.myapp.home.ui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -12,11 +11,13 @@ import android.widget.LinearLayout;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import xue.myapp.R;
-import xue.myapp.adapter.ViewPagerAdapter;
-import xue.myapp.utils.BottomNavigationViewHelper;
+import xue.myapp.home.adapter.ViewPagerAdapter;
+import xue.myapp.common.ui.CommonActivity;
 import xue.myapp.fragment.SimpleFragment;
+import xue.myapp.utils.BottomNavigationViewHelper;
 
-public class NavigationActivity extends AppCompatActivity {
+public class MainActivity extends CommonActivity {
+
 
     @Bind(R.id.viewpager)
     ViewPager viewPager;
@@ -33,7 +34,7 @@ public class NavigationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navigation);
+        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initNavigationViewPager();
     }
@@ -102,6 +103,4 @@ public class NavigationActivity extends AppCompatActivity {
         adapter.addFragment(SimpleFragment.newInstance("通知"));
         viewPager.setAdapter(adapter);
     }
-
-
 }
