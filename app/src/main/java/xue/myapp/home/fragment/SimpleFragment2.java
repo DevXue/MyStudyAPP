@@ -1,7 +1,6 @@
 package xue.myapp.home.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,13 +13,13 @@ import butterknife.ButterKnife;
 import xue.myapp.R;
 import xue.myapp.common.ui.CommonFragment;
 
-public class SimpleFragment extends CommonFragment {
+public class SimpleFragment2 extends CommonFragment {
     private static final String ARG_PARAM1 = "info";
     @Bind(R.id.textView)
     TextView textView;
 
-    public static SimpleFragment newInstance(String info) {
-        SimpleFragment fragment = new SimpleFragment();
+    public static SimpleFragment2 newInstance(String info) {
+        SimpleFragment2 fragment = new SimpleFragment2();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, info);
         fragment.setArguments(args);
@@ -44,13 +43,6 @@ public class SimpleFragment extends CommonFragment {
         return view;
     }
 
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-
     @Override
     protected void loadData() {
         super.loadData();
@@ -58,9 +50,10 @@ public class SimpleFragment extends CommonFragment {
             return;
         }
 
-        Log.e("SimpleFragment","执行");
+        Log.e("SimpleFragment2","执行");
 
     }
+
 
     @Override
     public void onDestroyView() {

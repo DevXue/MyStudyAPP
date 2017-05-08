@@ -39,10 +39,10 @@ public abstract class CommonActivity extends BaseActivity{
         initData();
     }
 
-
+    protected abstract int setLayout();//设置布局
     protected abstract void onCreated();//初始化
     protected abstract void initData();//初始化数据
-    protected abstract int setLayout();//设置布局
+
 
 
     @Override

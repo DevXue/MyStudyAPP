@@ -2,17 +2,22 @@ package xue.myapp.home.ui;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import xue.myapp.R;
 import xue.myapp.common.ui.CommonActivity;
-import xue.myapp.home.adapter.ViewPagerAdapter;
+import xue.myapp.home.adapter.MyFragmentPagerAdapter;
 import xue.myapp.home.fragment.SimpleFragment;
+import xue.myapp.home.fragment.SimpleFragment2;
+import xue.myapp.home.fragment.SimpleFragment3;
 import xue.myapp.utils.BottomNavigationViewHelper;
 
 
@@ -35,7 +40,7 @@ public class MainActivity extends CommonActivity {
     @Override
     protected void onCreated() {
         ButterKnife.bind(this);
-        initNavigationViewPager();
+        initViewPager();
     }
 
     @Override
@@ -53,7 +58,7 @@ public class MainActivity extends CommonActivity {
         return false;
     }
 
-    private void initNavigationViewPager(){
+    private void initViewPager(){
         //默认 >3 的选中效果会影响ViewPager的滑动切换时的效果，故利用反射去掉
         BottomNavigationViewHelper.disableShiftMode(bottomNavigation);
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -106,15 +111,19 @@ public class MainActivity extends CommonActivity {
         });*/
 
 
-        setupViewPager(viewPager);
+        initContentFragment();
     }
 
-    private void setupViewPager(ViewPager viewPager) {
-
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(SimpleFragment.newInstance("首页"));
-        adapter.addFragment(SimpleFragment.newInstance("功能"));
-        adapter.addFragment(SimpleFragment.newInstance("通知"));
+    private void initContentFragment() {
+        ArrayList<Fragment> mFragmentList = new ArrayList<>();
+        mFragmentList.add(SimpleFragment.newInstance("首页"));
+        mFragmentList.add(SimpleFragment2.newInstance("功能"));
+        mFragmentList.add(SimpleFragment3.newInstance("通知"));
+        // 注意使用的是：getSupportFragmentManager
+        MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
         viewPager.setAdapter(adapter);
+        // 设置ViewPager最大缓存的页面个数(cpu消耗少)
+        viewPager.setOffscreenPageLimit(2);
+        viewPager.setCurrentItem(0);
     }
 }

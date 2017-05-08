@@ -1,12 +1,7 @@
 package xue.myapp.common.ui;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 /**
  * 作者：薛
@@ -14,20 +9,11 @@ import android.widget.LinearLayout;
  */
 public abstract class CommonFragment extends Fragment{
 
-    protected LinearLayout loadDataAnim;//加载数据动画
-    protected LinearLayout loadDataFaild; //加载失败
-
 
     // fragment是否显示/可见了
     protected boolean isVisible = false;
 
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View ll = inflater.inflate(setContentLayout(), null);
-        return ll;
-    }
 
     /**
      * 在这里实现Fragment数据的缓加载.
@@ -43,12 +29,6 @@ public abstract class CommonFragment extends Fragment{
             onInvisible();//不可见
         }
     }
-
-
-    /**
-     * 设置布局布局
-     */
-    public abstract int setContentLayout();
 
     protected void onInvisible() {}
 
