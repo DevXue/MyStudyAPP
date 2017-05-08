@@ -1,6 +1,5 @@
 package xue.myapp.home.ui;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
@@ -32,12 +31,26 @@ public class MainActivity extends CommonActivity {
     private MenuItem menuItem;
 
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected void onCreated() {
         ButterKnife.bind(this);
         initNavigationViewPager();
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected int setLayout() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    protected boolean isShowToolBar() {
+        return false;
     }
 
     private void initNavigationViewPager(){

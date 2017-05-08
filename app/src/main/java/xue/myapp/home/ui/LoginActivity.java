@@ -55,10 +55,9 @@ public class LoginActivity extends CommonActivity implements LoaderCallbacks<Cur
         return false;
     }
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+    protected void onCreated() {
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -83,6 +82,17 @@ public class LoginActivity extends CommonActivity implements LoaderCallbacks<Cur
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected int setLayout() {
+        return R.layout.activity_login;
+    }
+
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {
             return;

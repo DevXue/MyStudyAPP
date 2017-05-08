@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.View;
@@ -33,16 +32,23 @@ public class SplashActivity extends CommonActivity {
     private boolean isFirstIn = false;//是否首次打开APP
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // 隐藏状态栏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_splash);
+    protected void onCreated() {
         ButterKnife.bind(this);
         initView();
     }
 
     @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected int setLayout() {
+        // 隐藏状态栏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        return R.layout.activity_splash;
+    }
+
     public void initView() {
         Random r = new Random(SystemClock.elapsedRealtime());
         ivEntry.setImageResource(SPLASH_ARRAY[r.nextInt(SPLASH_ARRAY.length)]);

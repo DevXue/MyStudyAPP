@@ -1,6 +1,5 @@
 package xue.myapp.module.demo.ui;
 
-import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -17,14 +16,22 @@ import xue.myapp.common.ui.CommonActivity;
  */
 public class InfoActivity extends CommonActivity {
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+    protected void onCreated() {
         initView();
     }
 
     @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected int setLayout() {
+        return R.layout.activity_info;
+    }
+
     public void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -1,7 +1,6 @@
 package xue.myapp.home.ui;
 
 import android.annotation.SuppressLint;
-import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextUtils;
@@ -20,8 +19,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import xue.myapp.Constants;
 import xue.myapp.R;
-import xue.myapp.home.adapter.GuideAdapter;
 import xue.myapp.common.ui.CommonActivity;
+import xue.myapp.home.adapter.GuideAdapter;
 
 @SuppressLint("InflateParams")
 public class GuideActivity extends CommonActivity implements OnPageChangeListener {
@@ -43,20 +42,26 @@ public class GuideActivity extends CommonActivity implements OnPageChangeListene
     private int[] ids = {R.id.guideOneImageView, R.id.guideTwoImageView, R.id.guideThreeImageView};
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guide);
-        ButterKnife.bind(this);
+    protected void onCreated() {
         initView();
+        ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected int setLayout() {
+        return R.layout.activity_guide;
     }
 
     protected void setStatusBar(){
         StatusBarUtil.setTranslucentForCoordinatorLayout(this,0);
     }
 
-    @Override
     public void initView() {
-        super.initView();
         LayoutInflater inflater = LayoutInflater.from(this);
         viewList = new ArrayList<View>();
         viewList.add(inflater.inflate(R.layout.guide_one, null));
