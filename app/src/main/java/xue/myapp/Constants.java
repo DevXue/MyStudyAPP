@@ -10,6 +10,7 @@ public class Constants {
     public static final String ISFIRST="isFirst"; //是否首次启动
     public static final String USERID="userId"; //用户ID
 
+    public static final String ARG_PARAM1 = "info";
 
 
 

@@ -10,18 +10,18 @@ import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import xue.myapp.Constants;
 import xue.myapp.R;
 import xue.myapp.common.ui.CommonFragment;
 
 public class SimpleFragment3 extends CommonFragment {
-    private static final String ARG_PARAM1 = "info";
     @Bind(R.id.textView)
     TextView textView;
 
     public static SimpleFragment3 newInstance(String info) {
         SimpleFragment3 fragment = new SimpleFragment3();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, info);
+        args.putString(Constants.ARG_PARAM1, info);
         fragment.setArguments(args);
         return fragment;
     }
@@ -31,7 +31,7 @@ public class SimpleFragment3 extends CommonFragment {
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_simple, null);
         textView= (TextView) view.findViewById(R.id.textView);
-        textView.setText(getArguments().getString("info"));
+        textView.setText(getArguments().getString(Constants.ARG_PARAM1));
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

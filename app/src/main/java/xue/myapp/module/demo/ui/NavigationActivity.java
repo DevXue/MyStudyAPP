@@ -3,18 +3,22 @@ package xue.myapp.module.demo.ui;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import xue.myapp.R;
-import xue.myapp.home.adapter.ViewPagerAdapter;
-import xue.myapp.utils.BottomNavigationViewHelper;
+import xue.myapp.home.adapter.MyFragmentPagerAdapter;
 import xue.myapp.home.fragment.SimpleFragment;
+import xue.myapp.module.demo.fragment.CategoryFragment;
+import xue.myapp.utils.BottomNavigationViewHelper;
 
 public class NavigationActivity extends AppCompatActivity {
 
@@ -95,12 +99,16 @@ public class NavigationActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(SimpleFragment.newInstance("首页"));
-        adapter.addFragment(SimpleFragment.newInstance("功能"));
-        adapter.addFragment(SimpleFragment.newInstance("通知"));
+        ArrayList<Fragment> mFragmentList = new ArrayList<>();
+        mFragmentList.add(CategoryFragment.newInstance("Android"));
+        mFragmentList.add(SimpleFragment.newInstance("IOS"));
+        mFragmentList.add(SimpleFragment.newInstance("前端"));
+        // 注意使用的是：getSupportFragmentManager
+        MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
         viewPager.setAdapter(adapter);
+        // 设置ViewPager最大缓存的页面个数(cpu消耗少)
+        viewPager.setOffscreenPageLimit(2);
+        viewPager.setCurrentItem(0);
     }
 
 
