@@ -27,9 +27,24 @@ public class SimpleFragment2 extends CommonFragment {
     }
 
 
-    @Override
+  /*  @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_simple, null);
+        textView= (TextView) view.findViewById(R.id.textView);
+        textView.setText(getArguments().getString("info"));
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "哈喽我的", Snackbar.LENGTH_SHORT).show();
+            }
+        });
+        ButterKnife.bind(this, view);
+        return view;
+    }*/
+
+    @Override
+    protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_simple, null);
         textView= (TextView) view.findViewById(R.id.textView);
         textView.setText(getArguments().getString("info"));
@@ -44,8 +59,12 @@ public class SimpleFragment2 extends CommonFragment {
     }
 
     @Override
+    protected void initData() {
+        Log.e("SimpleFragment2","执行002");
+    }
+
+   /* @Override
     protected void loadData() {
-        super.loadData();
         if (!isVisible) {
             return;
         }
@@ -53,7 +72,7 @@ public class SimpleFragment2 extends CommonFragment {
         Log.e("SimpleFragment2","执行");
 
     }
-
+*/
 
     @Override
     public void onDestroyView() {

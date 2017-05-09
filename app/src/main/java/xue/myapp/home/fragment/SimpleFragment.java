@@ -1,7 +1,6 @@
 package xue.myapp.home.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,9 +27,9 @@ public class SimpleFragment extends CommonFragment {
     }
 
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_simple, null);
         textView= (TextView) view.findViewById(R.id.textView);
         textView.setText(getArguments().getString("info"));
@@ -44,27 +43,17 @@ public class SimpleFragment extends CommonFragment {
         return view;
     }
 
-
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    protected void initData() {
+        Log.e("SimpleFragment","执行01");
     }
 
 
-    @Override
-    protected void loadData() {
-        super.loadData();
-        if (!isVisible) {
-            return;
-        }
-
-        Log.e("SimpleFragment","执行");
-
-    }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
+
 }

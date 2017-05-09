@@ -28,8 +28,7 @@ public class SimpleFragment3 extends CommonFragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_simple, null);
         textView= (TextView) view.findViewById(R.id.textView);
         textView.setText(getArguments().getString("info"));
@@ -43,16 +42,9 @@ public class SimpleFragment3 extends CommonFragment {
         return view;
     }
 
-
     @Override
-    protected void loadData() {
-        super.loadData();
-        if (!isVisible) {
-            return;
-        }
-
-        Log.e("SimpleFragment3","执行");
-
+    protected void initData() {
+        Log.e("SimpleFragment3","执行003");
     }
 
 
