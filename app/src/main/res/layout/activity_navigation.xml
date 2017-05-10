@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="xue.myapp.module.ui.NavigationActivity">
+    tools:context=".module.demo.ui.NavigationActivity">
 
     <FrameLayout
         android:id="@+id/content"
@@ -26,6 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation_test" />
 
 </LinearLayout>

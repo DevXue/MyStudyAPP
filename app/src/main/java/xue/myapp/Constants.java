@@ -10,7 +10,10 @@ public class Constants {
     public static final String ISFIRST="isFirst"; //是否首次启动
     public static final String USERID="userId"; //用户ID
 
-    public static final String ARG_PARAM1 = "info";
+    public static final String ARG_PARAM1 = "info"; //Fragment title
+    public static final String SELET="selet"; //图片查看器 类型  1：代表 头像  2：代表 大图
+    public static final String CODE ="code"; //图片数量
+    public static final String IMAGEURI ="imageuri"; //图片路径
 
 
 

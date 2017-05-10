@@ -13,7 +13,7 @@ import xue.myapp.common.interfaces.ResponseLintener;
  * 时间：2017/5/9 17:02
  */
 public class CommonModel implements ResponseLintener{
-
+    protected boolean isInitCache = false; //是否开启缓存
     protected Context context;
 
     public CommonModel(Context context){
@@ -33,8 +33,8 @@ public class CommonModel implements ResponseLintener{
 
     @Override
     public void onResponseSuccess(String code, Object result) {
-        for (ResponseLintener iterable_element : responseLinteners) {
-            iterable_element.onResponseSuccess(code, result);
+        for (ResponseLintener lintener : responseLinteners) {
+            lintener.onResponseSuccess(code, result);
         }
     }
 
@@ -44,7 +44,9 @@ public class CommonModel implements ResponseLintener{
 
     @Override
     public void onResponseFailed(Response response, Exception e) {
-
+        for (ResponseLintener lintener:responseLinteners){
+            lintener.onResponseFailed(response,e);
+        }
     }
 
 }

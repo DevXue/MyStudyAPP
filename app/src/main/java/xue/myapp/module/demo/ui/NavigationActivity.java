@@ -16,7 +16,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import xue.myapp.R;
 import xue.myapp.home.adapter.MyFragmentPagerAdapter;
-import xue.myapp.home.fragment.SimpleFragment;
 import xue.myapp.module.demo.fragment.CategoryFragment;
 import xue.myapp.utils.BottomNavigationViewHelper;
 
@@ -101,8 +100,8 @@ public class NavigationActivity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ArrayList<Fragment> mFragmentList = new ArrayList<>();
         mFragmentList.add(CategoryFragment.newInstance("Android"));
-        mFragmentList.add(SimpleFragment.newInstance("IOS"));
-        mFragmentList.add(SimpleFragment.newInstance("前端"));
+        mFragmentList.add(CategoryFragment.newInstance("iOS"));
+        mFragmentList.add(CategoryFragment.newInstance("拓展资源"));
         // 注意使用的是：getSupportFragmentManager
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
         viewPager.setAdapter(adapter);

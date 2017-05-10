@@ -8,5 +8,5 @@ public class Api {
 
 
     //GankIo 提供数据
-    public static final String HOMEDATA="http://gank.io/api/data/Android/10/1";
+    public static final String HOMEDATA="http://gank.io/api/data/";
 }

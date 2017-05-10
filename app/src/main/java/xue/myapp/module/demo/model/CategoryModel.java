@@ -33,7 +33,7 @@ public class CategoryModel  extends CommonModel{
     }
 
 
-    private List<CategoryData.Category> categoryList=new ArrayList<>();
+    private List<CategoryData.Category> categoryList=null;
 
     public List<CategoryData.Category> getCategoryList() {
         return categoryList;
@@ -43,8 +43,9 @@ public class CategoryModel  extends CommonModel{
         this.categoryList = categoryList;
     }
 
-    public void getCategoryData(String cacheTitle, final String apiCode){
-        OkGo.get(Api.HOMEDATA)
+    //                              Android/10/1
+    public void requestCategoryData(int pageCount,int page,String cacheTitle, final String apiCode){
+        OkGo.get(Api.HOMEDATA+cacheTitle+"/"+pageCount+"/"+page)
                 .cacheKey(cacheTitle)
                 .cacheMode(CacheMode.FIRST_CACHE_THEN_REQUEST)
                 .execute(new StringCallback() {
@@ -53,11 +54,25 @@ public class CategoryModel  extends CommonModel{
                         Gson gson=new Gson();
                         CategoryData category=gson.fromJson(s,CategoryData.class);
                         if (!ArrayUtil.isEmptyList(category.getResults())) {
+                            categoryList=new ArrayList<CategoryData.Category>();
                             categoryList.addAll(category.getResults());
                             onResponseSuccess(apiCode,"OK");
                         }else {
                             ToastUtil.showViewToast(context,"暂无数据");
                         }
+                    }
+
+                    @Override
+                    public void onCacheSuccess(String s, Call call) {
+                        super.onCacheSuccess(s, call);
+                        //一般来说,只需呀第一次初始化界面的时候需要使用缓存刷新界面,以后不需要,所以用一个变量标识
+                        if (!isInitCache) {
+                            //一般来说,缓存回调成功和网络回调成功做的事情是一样的,所以这里直接回调onSuccess
+                          //  onSuccess(s, call, null);
+                            onResponseSuccess(apiCode,"缓存OK");
+                            isInitCache = true;
+                        }
+
                     }
 
                     @Override
