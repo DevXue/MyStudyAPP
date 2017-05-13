@@ -57,7 +57,7 @@ public class LoginActivity extends CommonActivity implements LoaderCallbacks<Cur
 
 
     @Override
-    protected void onCreated() {
+    protected void initUI() {
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
         mPasswordView = (EditText) findViewById(R.id.password);

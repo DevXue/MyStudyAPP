@@ -18,7 +18,7 @@ public class InfoActivity extends CommonActivity {
 
 
     @Override
-    protected void onCreated() {
+    protected void initUI() {
         initView();
     }
 

@@ -38,7 +38,7 @@ public class MainActivity extends CommonActivity {
 
 
     @Override
-    protected void onCreated() {
+    protected void initUI() {
         ButterKnife.bind(this);
         initViewPager();
     }

@@ -33,7 +33,7 @@ public class SplashActivity extends CommonActivity {
     private boolean isFirstIn = false;//是否首次打开APP
 
     @Override
-    protected void onCreated() {
+    protected void initUI() {
         ButterKnife.bind(this);
         initView();
     }

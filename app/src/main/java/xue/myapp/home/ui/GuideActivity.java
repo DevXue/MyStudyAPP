@@ -42,9 +42,10 @@ public class GuideActivity extends CommonActivity implements OnPageChangeListene
     private int[] ids = {R.id.guideOneImageView, R.id.guideTwoImageView, R.id.guideThreeImageView};
 
     @Override
-    protected void onCreated() {
-        initView();
+    protected void initUI() {
         ButterKnife.bind(this);
+        initView();
+
     }
 
     @Override

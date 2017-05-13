@@ -42,17 +42,6 @@ dependencies {
     })
     //本地jar文件
     compile files('libs/xue.jar')
-    //5.0之后新特性
-    // recycleView
-    //动画效果Adapter
-    //注解框架 7.0.1就行，千万别升级，升级会有问题
-    //约束布局
-    //抽屉布局
-    //透明状态栏需要
-    //网络请求框架 OKhttp:OKGo
-    //图片加载库 Gilde
-    //Gson解析框架
-    //cardView
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
