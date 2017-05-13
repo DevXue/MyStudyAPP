@@ -42,7 +42,7 @@ import xue.myapp.utils.ToastUtil;
  *
  * @author jingbin
  */
-public class ViewBigImageActivity extends FragmentActivity implements OnPageChangeListener, PhotoViewAttacher.OnPhotoTapListener {
+public class BrowseImageActivity extends FragmentActivity implements OnPageChangeListener, PhotoViewAttacher.OnPhotoTapListener {
 
     // 保存图片
     private TextView tv_save_big_image;
@@ -125,7 +125,7 @@ public class ViewBigImageActivity extends FragmentActivity implements OnPageChan
      */
     private String getImagePath(String imgUrl) {
         String path = null;
-        FutureTarget<File> future = Glide.with(ViewBigImageActivity.this)
+        FutureTarget<File> future = Glide.with(BrowseImageActivity.this)
                 .load(imgUrl)
                 .downloadOnly(500, 500);
         try {
@@ -151,13 +151,13 @@ public class ViewBigImageActivity extends FragmentActivity implements OnPageChan
             @Override
             public void onClick(View view) {
 
-                ToastUtil.showToast(ViewBigImageActivity.this,"开始下载图片");
+                ToastUtil.showToast(BrowseImageActivity.this,"开始下载图片");
                 if (isApp) {// 本地图片
                     Bitmap bitmap = BitmapFactory.decodeResource(getResources(), imageId);
                     if (bitmap != null) {
-                        saveImageToGallery(ViewBigImageActivity.this, bitmap);
-                        ToastUtil.showToast(ViewBigImageActivity.this,"保存成功");
-//                        Toast.makeText(ViewBigImageActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
+                        saveImageToGallery(BrowseImageActivity.this, bitmap);
+                        ToastUtil.showToast(BrowseImageActivity.this,"保存成功");
+//                        Toast.makeText(BrowseImageActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
                     }
 
                 } else {// 网络图片
@@ -168,14 +168,14 @@ public class ViewBigImageActivity extends FragmentActivity implements OnPageChan
                             // 子线程获得图片路径
                             final String imagePath = getImagePath(imageuri.get(page));
                             // 主线程更新
-                            ViewBigImageActivity.this.runOnUiThread(new Runnable() {
+                            BrowseImageActivity.this.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     if (imagePath != null) {
                                         Bitmap bitmap = BitmapFactory.decodeFile(imagePath, bmOptions);
                                         if (bitmap != null) {
-                                            saveImageToGallery(ViewBigImageActivity.this, bitmap);
-                                            ToastUtil.showToast(ViewBigImageActivity.this,"已保存至"+Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+appName);
+                                            saveImageToGallery(BrowseImageActivity.this, bitmap);
+                                            ToastUtil.showToast(BrowseImageActivity.this,"已保存至"+Environment.getExternalStorageDirectory().getAbsolutePath()+"/"+appName);
                                         }
                                     }
                                 }
@@ -242,7 +242,7 @@ public class ViewBigImageActivity extends FragmentActivity implements OnPageChan
             if (imageId != 0) {
                 zoom_image_view.setImageResource(imageId);
             }
-            zoom_image_view.setOnPhotoTapListener(ViewBigImageActivity.this);
+            zoom_image_view.setOnPhotoTapListener(BrowseImageActivity.this);
             container.addView(view, 0);
             return view;
         }
@@ -285,7 +285,7 @@ public class ViewBigImageActivity extends FragmentActivity implements OnPageChan
 
             spinner.setVisibility(View.VISIBLE);
             spinner.setClickable(false);
-            Glide.with(ViewBigImageActivity.this).load(imageUrl)
+            Glide.with(BrowseImageActivity.this).load(imageUrl)
                     .crossFade(700)
                     .listener(new RequestListener<String, GlideDrawable>() {
                         @Override
@@ -314,7 +314,7 @@ public class ViewBigImageActivity extends FragmentActivity implements OnPageChan
                         }
                     }).into(zoom_image_view);
 
-            zoom_image_view.setOnPhotoTapListener(ViewBigImageActivity.this);
+            zoom_image_view.setOnPhotoTapListener(BrowseImageActivity.this);
             container.addView(view, 0);
             return view;
         }

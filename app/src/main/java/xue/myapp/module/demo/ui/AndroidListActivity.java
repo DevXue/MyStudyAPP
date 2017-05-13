@@ -20,6 +20,8 @@ import xue.myapp.utils.ArrayUtil;
 import xue.myapp.utils.LogUtil;
 import xue.myapp.utils.ToastUtil;
 
+import static xue.myapp.MyAPP.context;
+
 public class AndroidListActivity extends CommonActivity implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener,ResponseLintener {
 
     @Bind(R.id.recyclerView)
@@ -42,7 +44,7 @@ public class AndroidListActivity extends CommonActivity implements SwipeRefreshL
     }
 
     @Override
-    protected void onCreated() {
+    protected void initUI() {
         ButterKnife.bind(this);
 
     }
@@ -54,7 +56,7 @@ public class AndroidListActivity extends CommonActivity implements SwipeRefreshL
         setRefreshing(true); //开启下拉刷新
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         refreshLayout.setOnRefreshListener(this);
-        adapter=new CategoryAdapter(R.layout.item_category_fragment,model.getCategoryList());
+        adapter=new CategoryAdapter(R.layout.item_category_fragment,model.getCategoryList(),this);
         adapter.setOnLoadMoreListener(this,recyclerView);
         adapter.setNotDoAnimationCount(7);
         recyclerView.setAdapter(adapter);
@@ -80,13 +82,6 @@ public class AndroidListActivity extends CommonActivity implements SwipeRefreshL
         LogUtil.e(result);
         setRefreshing(false);
         if (!ArrayUtil.isEmptyList(model.getCategoryList())) {
-           /* if (isFirst) { //如果是首次加载，那么就刷新adapter 不需要setNewData();
-                adapter.notifyDataSetChanged();
-                recyclerView.setAdapter(adapter);
-                isFirst=false;
-                return;
-            }*/
-
             if (page == 1) { //如果页数等于1，那么说明是下拉刷新获取的数据
                 adapter.setNewData(model.getCategoryList());
             }else{  //如果页数不是1 那么说明是上拉加载
@@ -103,7 +98,12 @@ public class AndroidListActivity extends CommonActivity implements SwipeRefreshL
 
     @Override
     public void onResponseFailed(Response response, Exception e) {
-
+        if (refreshLayout.isRefreshing()) {
+            refreshLayout.setRefreshing(false);
+        }
+        ToastUtil.showViewToast(context,"网络异常,请检查网络设置");
+        LogUtil.e(e.getMessage());
+        adapter.loadMoreFail();
     }
 
 

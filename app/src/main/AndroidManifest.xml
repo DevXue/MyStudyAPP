@@ -50,8 +50,11 @@
         <activity
             android:name=".module.demo.ui.NavigationActivity"
             android:label="@string/title_activity_navigation" />
-        <activity android:name=".common.photoview.ViewBigImageActivity" />
-        <activity android:name=".module.demo.ui.AndroidListActivity"></activity>
+        <activity android:name=".module.demo.ui.AndroidListActivity"/>
+        <activity
+            android:name=".common.photoview.BrowseImageActivity"
+            android:screenOrientation="portrait"
+             />
     </application>
 
 </manifest>

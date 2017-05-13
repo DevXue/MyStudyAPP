@@ -2,9 +2,11 @@ package xue.myapp.module.demo.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,14 +37,13 @@ public class CategoryFragment extends CommonFragment implements SwipeRefreshLayo
     RecyclerView recyclerView;
     @Bind(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
-    private String title;
     private Context context;
     private CategoryAdapter adapter;
     private CategoryData.Category category;
     private CategoryModel model;
     private int page=1;
     private int pageCount=20;
-    private boolean isFirst=true;
+    private String title;
     public static CategoryFragment newInstance(String info) {
         CategoryFragment fragment = new CategoryFragment();
         Bundle args = new Bundle();
@@ -73,11 +74,11 @@ public class CategoryFragment extends CommonFragment implements SwipeRefreshLayo
         setRefreshing(true); //开启下拉刷新
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         refreshLayout.setOnRefreshListener(this);
-        adapter=new CategoryAdapter(R.layout.item_category_fragment,model.getCategoryList());
+        adapter=new CategoryAdapter(R.layout.item_category_fragment,model.getCategoryList(),context);
         adapter.setOnLoadMoreListener(this,recyclerView);
         adapter.setNotDoAnimationCount(7);
         recyclerView.setAdapter(adapter);
-        loadData();
+        onRefresh();
     }
 
 
@@ -104,17 +105,25 @@ public class CategoryFragment extends CommonFragment implements SwipeRefreshLayo
 
     //请求数据
     private void loadData(){
+        Log.e("获取数据","loadData");
         model.requestCategoryData(pageCount,page,title,"");
     }
 
 
     public void setRefreshing(final boolean refreshing) {
-        refreshLayout.post(new Runnable() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 refreshLayout.setRefreshing(refreshing);
             }
-        });
+        },200);
+
+       /* refreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                refreshLayout.setRefreshing(refreshing);
+            }
+        });*/
     }
 
 
@@ -123,20 +132,12 @@ public class CategoryFragment extends CommonFragment implements SwipeRefreshLayo
         LogUtil.e(result);
         setRefreshing(false);
         if (!ArrayUtil.isEmptyList(model.getCategoryList())) {
-
-            if (isFirst) { //如果是首次加载，那么就刷新adapter 不需要setNewData();
-                adapter.notifyDataSetChanged();
-                recyclerView.setAdapter(adapter);
-                isFirst=false;
-                return;
-            }
-
             if (page == 1) { //如果页数等于1，那么说明是下拉刷新获取的数据
                 adapter.setNewData(model.getCategoryList());
             }else{  //如果页数不是1 那么说明是上拉加载
                 refreshLayout.setEnabled(false);
                 adapter.addData(model.getCategoryList());
-                adapter.setEnableLoadMore(true);
+                adapter.loadMoreComplete();
             }
             refreshLayout.setEnabled(true);
 
@@ -148,14 +149,21 @@ public class CategoryFragment extends CommonFragment implements SwipeRefreshLayo
     @Override
     public void onResponseFailed(Response response, Exception e) {
         setRefreshing(false);
+        //setRefreshing(false);
         ToastUtil.showViewToast(context,"网络异常,请检查网络设置");
         LogUtil.e(e.getMessage());
+        adapter.loadMoreFail();
     }
 
     @Override
     public void onStop() {
         super.onStop();
         LogUtil.e("onStop");
-        isFirst=true;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        model.removeResponseListener(this);
     }
 }

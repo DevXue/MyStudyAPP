@@ -68,8 +68,8 @@ public class CategoryModel  extends CommonModel{
                         //一般来说,只需呀第一次初始化界面的时候需要使用缓存刷新界面,以后不需要,所以用一个变量标识
                         if (!isInitCache) {
                             //一般来说,缓存回调成功和网络回调成功做的事情是一样的,所以这里直接回调onSuccess
-                          //  onSuccess(s, call, null);
-                            onResponseSuccess(apiCode,"缓存OK");
+                             onSuccess(s, call, null);
+                           // onResponseSuccess(apiCode,"缓存OK");
                             isInitCache = true;
                         }
 

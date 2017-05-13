@@ -30,8 +30,9 @@ public class CommonRecyclerViewAdapter<T>  extends BaseQuickAdapter<T,BaseViewHo
 
     //这里设置了不让某几个item不显示动画以及设置动画效果，避免了在每一个类都写重复操作！
     private void initAdapter(){
-        setNotDoAnimationCount(7);//设置前接个Item不显示动画
-        openLoadAnimation(BaseQuickAdapter.EMPTY_VIEW);//设置动画样式
+        setNotDoAnimationCount(5);//设置前接个Item不显示动画
+        isFirstOnly(true);
+        openLoadAnimation(BaseQuickAdapter.ALPHAIN);//设置动画样式
     }
 
 }

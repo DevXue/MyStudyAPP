@@ -7,7 +7,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 import xue.myapp.Constants;
-import xue.myapp.common.photoview.ViewBigImageActivity;
+import xue.myapp.common.photoview.BrowseImageActivity;
 
 /**
  * 作者：薛
@@ -22,7 +22,7 @@ public class ImageBrowseUtil {
         bundle.putInt(Constants.SELET, 2);// 2,大图显示当前页数，1,头像，不显示页数
         bundle.putInt(Constants.CODE, position);//第几张
         bundle.putStringArrayList(Constants.IMAGEURI, imageUrl);
-        Intent intent = new Intent(context, ViewBigImageActivity.class);
+        Intent intent = new Intent(context, BrowseImageActivity.class);
         intent.putExtras(bundle);
         context.startActivity(intent);
     }

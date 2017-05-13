@@ -17,7 +17,6 @@ import butterknife.ButterKnife;
 import xue.myapp.Constants;
 import xue.myapp.R;
 import xue.myapp.common.ui.CommonActivity;
-import xue.myapp.module.demo.ui.AndroidListActivity;
 
 import static xue.myapp.Constants.SPLASH_ARRAY;
 
@@ -92,7 +91,7 @@ public class SplashActivity extends CommonActivity {
 
 
     private void goHome() {
-        startActivity(AndroidListActivity.class);
+        startActivity(MainActivity.class);
         finish();
     }
 

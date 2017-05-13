@@ -15,9 +15,7 @@ import butterknife.ButterKnife;
 import xue.myapp.R;
 import xue.myapp.common.ui.CommonActivity;
 import xue.myapp.home.adapter.MyFragmentPagerAdapter;
-import xue.myapp.home.fragment.SimpleFragment;
-import xue.myapp.home.fragment.SimpleFragment2;
-import xue.myapp.home.fragment.SimpleFragment3;
+import xue.myapp.module.demo.fragment.CategoryFragment;
 import xue.myapp.utils.BottomNavigationViewHelper;
 
 
@@ -116,9 +114,9 @@ public class MainActivity extends CommonActivity {
 
     private void initContentFragment() {
         ArrayList<Fragment> mFragmentList = new ArrayList<>();
-        mFragmentList.add(SimpleFragment.newInstance("首页"));
-        mFragmentList.add(SimpleFragment2.newInstance("功能"));
-        mFragmentList.add(SimpleFragment3.newInstance("通知"));
+        mFragmentList.add(CategoryFragment.newInstance("Android"));
+        mFragmentList.add(CategoryFragment.newInstance("iOS"));
+        mFragmentList.add(CategoryFragment.newInstance("拓展资源"));
         // 注意使用的是：getSupportFragmentManager
         MyFragmentPagerAdapter adapter = new MyFragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
         viewPager.setAdapter(adapter);
