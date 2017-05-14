@@ -23,6 +23,9 @@ import xue.myapp.common.ui.CommonFragment;
 import xue.myapp.module.demo.adapter.CategoryAdapter;
 import xue.myapp.module.demo.bean.CategoryData;
 import xue.myapp.module.demo.model.CategoryModel;
+import xue.myapp.module.main.IM.PushManager;
+import xue.myapp.module.main.IM.PushWatcher;
+import xue.myapp.module.main.IM.bean.Message;
 import xue.myapp.utils.ArrayUtil;
 import xue.myapp.utils.LogUtil;
 import xue.myapp.utils.ToastUtil;
@@ -79,8 +82,24 @@ public class CategoryFragment extends CommonFragment implements SwipeRefreshLayo
         adapter.setNotDoAnimationCount(7);
         recyclerView.setAdapter(adapter);
         onRefresh();
+        PushManager.getInstance(getContext()).addObserver(watcher1);
+
+        Message message=new Message();
+        message.setId("11");
+        message.setType("ok");
+        message.setStatus("ing");
+        PushManager.getInstance(getContext()).sendMessage(message);
+
+        PushManager.getInstance(getContext()).handlerPush("sssssssssssssssss");
     }
 
+
+    PushWatcher watcher1=new PushWatcher(){
+        @Override
+        public void messageUpdate(Message message) {
+            LogUtil.e("观察者"+message.toString());
+        }
+    };
 
     @Override
     public void onDestroyView() {
@@ -166,4 +185,5 @@ public class CategoryFragment extends CommonFragment implements SwipeRefreshLayo
         super.onDestroy();
         model.removeResponseListener(this);
     }
+
 }

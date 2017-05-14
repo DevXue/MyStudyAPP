@@ -15,6 +15,7 @@ public class Constants {
     public static final String CODE ="code"; //图片数量
     public static final String IMAGEURI ="imageuri"; //图片路径
 
+    public static final String MESSAGE ="message";
 
 
     public static final int[] SPLASH_ARRAY = {
